@@ -1,17 +1,1 @@
-const envelope = document.getElementById('envelope');
-const action = document.getElementById('action');
-
-function toggleEnvelope() {
-  envelope.classList.toggle('open');
-
-  if (envelope.classList.contains('open')) {
-    action.textContent = 'Close my mail 💕';
-    envelope.setAttribute('aria-expanded', 'true');
-  } else {
-    action.textContent = 'Open my mail 💌';
-    envelope.setAttribute('aria-expanded', 'false');
-  }
-}
-
-envelope.addEventListener('click', toggleEnvelope);
-action.addEventListener('click', toggleEnvelope);
+const envelope=document.getElementById('envelope');const action=document.getElementById('action');const mailbox=document.getElementById('mailbox');const letter=document.getElementById('letter');const instruction=document.getElementById('instruction');function toggleEnvelope(){mailbox.classList.toggle('open');if(mailbox.classList.contains('open')){action.textContent='Close my mail 💕';instruction.textContent='Your meowdino finally delivered the apology 💗';envelope.setAttribute('aria-expanded','true');letter.setAttribute('aria-hidden','false')}else{action.textContent='Open my mail 💌';instruction.textContent='Tap the envelope to open your apology letter';envelope.setAttribute('aria-expanded','false');letter.setAttribute('aria-hidden','true')}}envelope.addEventListener('click',toggleEnvelope);action.addEventListener('click',toggleEnvelope);

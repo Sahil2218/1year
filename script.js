@@ -1,1 +1,19 @@
-const envelope=document.getElementById('envelope');const action=document.getElementById('action');const mailbox=document.getElementById('mailbox');const letter=document.getElementById('letter');const instruction=document.getElementById('instruction');function toggleEnvelope(){mailbox.classList.toggle('open');if(mailbox.classList.contains('open')){action.textContent='Close my mail 💕';instruction.textContent='Your meowdino finally delivered the apology 💗';envelope.setAttribute('aria-expanded','true');letter.setAttribute('aria-hidden','false')}else{action.textContent='Open my mail 💌';instruction.textContent='Tap the envelope to open your apology letter';envelope.setAttribute('aria-expanded','false');letter.setAttribute('aria-hidden','true')}}envelope.addEventListener('click',toggleEnvelope);action.addEventListener('click',toggleEnvelope);
+const action = document.getElementById('action');
+const mailbox = document.getElementById('mailbox');
+const letter = document.getElementById('letter');
+
+function toggleMail() {
+  const isOpen = mailbox.classList.toggle('open');
+
+  action.textContent = isOpen ? 'Close the Mail' : 'Open the Mail';
+  action.setAttribute('aria-expanded', String(isOpen));
+  letter.setAttribute('aria-hidden', String(!isOpen));
+
+  if (isOpen) {
+    setTimeout(() => {
+      letter.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 200);
+  }
+}
+
+action.addEventListener('click', toggleMail);
